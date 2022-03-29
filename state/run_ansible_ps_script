@@ -1,0 +1,11 @@
+dw ansible powershell:
+  module.run:
+    - name: cp.get_url
+    - path: https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
+    - dest: C:\\tmp
+run ansible powershell:
+  module.run:
+    - name: cmd.run
+    - cmd: C:\\tmp\\ConfigureRemotingForAnsible.ps1
+    - shell: powershell
+    - env: "-ExecutionPolicy bypass"
